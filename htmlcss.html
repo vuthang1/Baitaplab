@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        .active{
+            border: 2px dashed green;
+            background-color: #e6ffe6;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        #box{
+            margin: 15px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 id="title">Đây là tiêu đề ban đầu</h2>
+
+    <div id="box">
+        Đây là một thẻ div chứa nội dung ban đầu
+    </div>
+
+    <label for="name">Nhập tên của bạn:</label>
+
+    <input type="text" id="name" name="name" value="Nguyễn Văn An">
+
+    <button id="btn-text">Dùng Text</button>
+    <button id="btn-html">Dùng HTML</button>
+    <button id="btn-val">Dùng Val</button>
+    <button id="btn-css">Dùng CSS</button>
+    <button id="btn-removeClass">Xóa lớp CSS</button>
+    <button id="btn-addClass">Thêm lớp CSS</button>
+
+    <script>
+
+        // Chờ trang tải xong
+        $(document).ready(function() {
+
+            // 1. Dùng text()
+            $("#btn-text").click(function() {
+                $("#title").text('Đây là tiêu đề mới sau khi dùng text()');
+            });
+
+            // 2. Dùng html()
+            $("#btn-html").click(function() {
+                $("#box").html("<b>New</b><br>Nội dung này được chèn bằng HTML");
+            });
+
+            // 3. Dùng val()
+            $("#btn-val").click(function() {
+
+                let name = $("#name").val();
+
+                alert("Giá trị hiện tại của input là: " + name);
+
+            });
+
+            // 4. Dùng css()
+            $("#btn-css").click(function() {
+
+                $("#box")
+                    .css("color", "red")
+                    .css("font-weight", "bold");
+
+            });
+
+            // 5. Dùng addClass()
+            $("#btn-addClass").click(function() {
+
+                $("#box").addClass("active");
+
+            });
+
+            // 6. Dùng removeClass()
+            $("#btn-removeClass").click(function() {
+
+                $("#box").removeClass("active");
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
